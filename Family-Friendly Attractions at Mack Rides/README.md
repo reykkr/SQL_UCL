@@ -1,0 +1,3 @@
+Family-Friendly Attractions at Mack Rides
+
+Discover a range of family-oriented attractions designed to thrill young adventurers at Mack Rides! With a focus on safety and enjoyment, these attractions offer an exciting experience suitable for children under 12 years old and those with a height below 145cm. The rides also ensure accessibility for pregnant guests. From roller coasters to interactive adventures, Mack Rides presents a collection of attractions that promise a memorable journey lasting approximately 6 minutes. So, if you're seeking a fun-filled outing for the whole family, these attractions are a must-visit.

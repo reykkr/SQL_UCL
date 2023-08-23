@@ -1,0 +1,3 @@
+Database Schema for Ticket Management System in Theme Parks
+
+This database schema illustrates a Ticket Management System designed for theme parks. It consists of three main tables: "billet" for tickets, "parc" for park information, and "paiement" for payment details. The "billet" table stores information about individual tickets, including their ID, date, type, price, and validity period, along with references to the corresponding park and payment. The "parc" table holds data about different parks, including their ID and name. The "paiement" table stores payment information, such as payment ID, transaction ID, payment type, and payment amount. Sample data has been inserted into the tables to demonstrate their relationships and structure.

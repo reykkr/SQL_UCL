@@ -1,0 +1,41 @@
+[{
+		"NOM": "ESCALADE",
+		"DATE": {"$date": "2023-05-01"},
+		"HEURE": "15:00",
+		"NOTE": 5,
+		"CU": 10,
+		"PUV": 15,
+		"ADHERENT": {"NOM": "Jean-Dujardin",
+			       "ADRESSE": "11 rue du Bereal",
+			       "AGE": 60}
+	},
+
+	{
+		"NOM": "ESCALADE",
+		"DATE": {"$date": "2023-05-21"},
+		"HEURE": "16:00",
+		"NOTE": 3,
+		"CU": 10,
+		"PUV": 15,
+		"ADHERENT": {
+			"NOM": "John of the garden",
+			"ADRESSE": "55 rue Jean Massé",
+			"AGE": 55
+		}
+	},
+
+	{
+		"NOM": "CIRQUE",
+		"DATE": {"$date": "2023-05-20"},
+		"HEURE": "10:00",
+		"NOTE": 4,
+		"CU": 20,
+		"PUV": 30,
+		"ADHERENT": {
+			"NOM": {"NOM": "GHADDAR",
+				  "PRENOM": "MOHAMAD ALI"},
+			"ADRESSE": "1 rue Roweiss",
+			"AGE": 21
+		}
+	}
+]

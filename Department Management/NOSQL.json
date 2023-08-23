@@ -1,0 +1,126 @@
+{
+  "tables": [
+    {
+      "name": "gestionnaire",
+      "columns": [
+        {"name": "id_gest", "type": "INT", "primary_key": true},
+        {"name": "nom_gest", "type": "TEXT"}
+      ],
+      "rows": [
+        {"id_gest": 1, "nom_gest": "Lille gestion"},
+        {"id_gest": 2, "nom_gest": "Paris gestion"},
+        {"id_gest": 3, "nom_gest": "Madrid gestion"}
+      ]
+    },
+    {
+      "name": "local",
+      "columns": [
+        {"name": "id_loc", "type": "INT", "primary_key": true},
+        {"name": "nom_loc", "type": "TEXT"},
+        {"name": "descp_loc", "type": "TEXT"},
+        {"name": "diagnostic", "type": "TEXT"},
+        {"name": "date_loc", "type": "DATE"},
+        {"name": "id_gest", "type": "INT", "references": "gestionnaire(id_gest)"},
+        {"name": "id_equip", "type": "INT", "references": "equipements(id_equip)"}
+      ],
+      "rows": [
+        {"id_loc": 1, "nom_loc": "universite catholique de lille", "descp_loc": "ecole dans le centre de lille", "diagnostic": "chauffage ne marche pas", "date_loc": "2023-05-20", "id_gest": 1, "id_equip": 1},
+        {"id_loc": 2, "nom_loc": "salle exposition paris", "descp_loc": "musee de DA-Vinci", "diagnostic": "pas assé de composant", "date_loc": "2023-05-22", "id_gest": 2, "id_equip": 2},
+        {"id_loc": 3, "nom_loc": "chauffage de madrid", "descp_loc": "centre de chauffagerie", "diagnostic": "temperature>30", "date_loc": "2023-05-01", "id_gest": 3, "id_equip": 3}
+      ]
+    },
+    {
+      "name": "constituant",
+      "columns": [
+        {"name": "id_cons", "type": "INT", "primary_key": true},
+        {"name": "nom_cons", "type": "TEXT"},
+        {"name": "descp_cons", "type": "TEXT"},
+        {"name": "quantite", "type": "INT"},
+        {"name": "doc_ref", "type": "TEXT"},
+        {"name": "id_loc", "type": "INT", "references": "local(id_loc)"}
+      ],
+      "rows": [
+        {"id_cons": 1, "nom_cons": "mur", "descp_cons": "murs des classes", "quantite": 10, "doc_ref": "325", "id_loc": 1},
+        {"id_cons": 2, "nom_cons": "sol", "descp_cons": "la terre", "quantite": 5, "doc_ref": "578", "id_loc": 1},
+        {"id_cons": 3, "nom_cons": "meuble", "descp_cons": "tout les meubles", "quantite": 50, "doc_ref": "415", "id_loc": 1},
+{"id_cons": 4, "nom_cons": "equipements", "descp_cons": "electrique", "quantite": 5, "doc_ref": "485", "id_loc": 1},
+        {"id_cons": 5, "nom_cons": "mur", "descp_cons": "murs des salles", "quantite": 15, "doc_ref": "354", "id_loc": 2},
+        {"id_cons": 6, "nom_cons": "sol", "descp_cons": "la terre", "quantite": 7, "doc_ref": "528", "id_loc": 2},
+        {"id_cons": 7, "nom_cons": "meuble", "descp_cons": "tout les meubles", "quantite": 50, "doc_ref": "415", "id_loc": 2},
+        {"id_cons": 8, "nom_cons": "equipements", "descp_cons": "electrique", "quantite": 15, "doc_ref": "485", "id_loc": 2},
+        {"id_cons": 9, "nom_cons": "mur", "descp_cons": "murs des batiments", "quantite": 30, "doc_ref": "925", "id_loc": 3},
+        {"id_cons": 10, "nom_cons": "sol", "descp_cons": "la terre", "quantite": 15, "doc_ref": "478", "id_loc": 3},
+        {"id_cons": 11, "nom_cons": "meuble", "descp_cons": "tout les meubles", "quantite": 126, "doc_ref": "615", "id_loc": 3},
+        {"id_cons": 12, "nom_cons": "equipements", "descp_cons": "electrique", "quantite": 15, "doc_ref": "685", "id_loc": 3}
+      ]
+    },
+{
+      "name": "lignebudget",
+      "columns": [
+        {"name": "id_lbg", "type": "INT", "primary_key": true},
+        {"name": "code_lbg", "type": "NUMERIC"},
+        {"name": "montant", "type": "NUMERIC"},
+        {"name": "id_gest", "type": "INT", "references": "gestionnaire(id_gest)"},
+        {"name": "id_equip", "type": "INT", "references": "equipements(id_equip)"}
+      ],
+      "rows": [
+        {"id_lbg": 1, "code_lbg": 20, "montant": 2500, "id_gest": 1, "id_equip": 1},
+        {"id_lbg": 2, "code_lbg": 50, "montant": 4866, "id_gest": 2, "id_equip": 2},
+        {"id_lbg": 3, "code_lbg": 70, "montant": 89552, "id_gest": 3, "id_equip": 3}
+      ]
+    },
+{
+      "name": "equipements",
+      "columns": [
+        {"name": "id_equip", "type": "INT", "primary_key": true},
+        {"name": "nom_equip", "type": "TEXT"},
+{"id_equip": 3, "nom_equip": "employe", "descp_equip": "travailleur de usine madrid"}
+      ],
+      "rows": [
+        {"id_equip": 1, "nom_equip": "groupe scolaire", "descp_equip": "etudiant de la catho"},
+        {"id_equip": 2, "nom_equip": "musee", "descp_equip": "muse de da vinci"},
+        {"id_equip": 3, "nom_equip": "employe", "descp_equip": "travailleur de usine madrid"}
+      ]
+    },
+    {
+      "name": "prestation",
+      "columns": [
+        {"name": "id_ps", "type": "INT", "primary_key": true},
+        {"name": "status", "type": "TEXT"},
+        {"name": "dep_prevue", "type": "NUMERIC"},
+        {"name": "cout", "type": "NUMERIC"},
+        {"name": "date_ps", "type": "DATE"},
+        {"name": "nom_entreprise", "type": "TEXT"},
+        {"name": "id_mar", "type": "INT", "references": "marche(id_mar)"},
+        {"name": "id_cons", "type": "INT", "references": "constituant(id_cons)"}
+      ],
+      "rows": [
+        {"id_ps": 1, "status": "valider", "dep_prevue": 100, "cout": 75, "date_ps": "2023-05-18", "nom_entreprise": "auchan", "id_mar": 1, "id_cons": 10},
+        {"id_ps": 2, "status": "en cours", "dep_prevue": 150, "cout": 500, "date_ps": "2022-05-01", "nom_entreprise": "oney", "id_mar": 2, "id_cons": 11},
+        {"id_ps": 3, "status": "pas encore", "dep_prevue": 200, "cout": 150, "date_ps": "2021-05-18", "nom_entreprise": "kingfisher", "id_mar": 3, "id_cons": 12},
+        {"id_ps": 4, "status": "valider", "dep_prevue": 100, "cout": 75, "date_ps": "2023-05-18", "nom_entreprise": "auchan", "id_mar": 1, "id_cons": 10},
+        {"id_ps": 5, "status": "Décidée", "dep_prevue": 150, "cout": 500, "date_ps": "2022-05-01", "nom_entreprise": "oney", "id_mar": 2, "id_cons": 11},
+        {"id_ps": 6, "status": "Décidée", "dep_prevue": 200, "cout": 150, "date_ps": "2021-05-18", "nom_entreprise": "kingfisher", "id_mar": 3, "id_cons": 12},
+        {"id_ps": 7, "status": "Décidée", "dep_prevue": 100, "cout": 75, "date_ps": "2023-05-18", "nom_entreprise": "auchan", "id_mar": 1, "id_cons": 10},
+        {"id_ps": 8, "status": "Décidée", "dep_prevue": 150, "cout": 500, "date_ps": "2022-05-01", "nom_entreprise": "oney", "id_mar": 2, "id_cons": 11},
+        {"id_ps": 9, "status": "Décidée", "dep_prevue": 200, "cout": 150, "date_ps": "2021-05-18", "nom_entreprise": "kingfisher", "id_mar": 3, "id_cons": 12}
+      ]
+    },
+    {
+      "name": "marche",
+      "columns": [
+        {"name": "id_mar", "type": "INT", "primary_key": true},
+        {"name": "nom_mar", "type": "TEXT"},
+        {"name": "descp_mar", "type": "TEXT"},
+        {"name": "date_mar", "type": "DATE"},
+        {"name": "id_gest", "type": "INT", "references": "gestionnaire(id_gest)"},
+        {"name": "id_equip", "type": "INT", "references": "equipements(id_equip)"}
+      ],
+      "rows": [
+        {"id_mar": 1, "nom_mar": "gros budget", "descp_mar": "budget pour equipement", "date_mar": "2023-05-20", "id_gest": 1, "id_equip": 1},
+        {"id_mar": 2, "nom_mar": "budget moyen", "descp_mar": "budget pour equipement", "date_mar": "2023-05-22", "id_gest": 2, "id_equip": 2},
+        {"id_mar": 3, "nom_mar": "budget faible", "descp_mar": "budget pour equipement", "date_mar": "2023-05-01", "id_gest": 3, "id_equip": 3}
+      ]
+    }
+  ]
+}
